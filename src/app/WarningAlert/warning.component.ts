@@ -8,10 +8,14 @@ import {Component} from '@angular/core';
 
 export class WarningComponent {
 
-  status = true;
+  status = false;
+  serverStatus = false;
 
   // tslint:disable-next-line:typedef
   getButtonStatus() {
     return status;
+  }
+  isServerOnline() {
+    this.serverStatus = !this.serverStatus;
   }
 }

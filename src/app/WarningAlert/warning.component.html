@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col"><p>WarningComponent Alert Message.</p></div>
-    <div class="col"><button class="btn btn-success" [disabled]="status" >Testing Button</button></div>
+    <div class="col"><button class="btn btn-success" [disabled]="status"
+                             (click) = isServerOnline()>Toggle button</button></div>
+    <div class="col" >{{serverStatus}}</div>
   </div>
 </div>
