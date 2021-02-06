@@ -8,4 +8,10 @@ import {Component} from '@angular/core';
 
 export class WarningComponent {
 
+  status = true;
+
+  // tslint:disable-next-line:typedef
+  getButtonStatus() {
+    return status;
+  }
 }
