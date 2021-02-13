@@ -6,6 +6,7 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <button class="btn-danger" (click) ="onDestroyFirst()">Destroy First Component</button>
       <app-server-element *ngFor="let serverElement of serverElements"
                           [newName]="serverElement"
       >
