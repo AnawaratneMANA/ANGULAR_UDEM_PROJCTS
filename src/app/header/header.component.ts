@@ -8,7 +8,6 @@ export class HeaderComponent {
   @Output() featureSelected = new EventEmitter<string>();
   onClick(feature: string) {
     this.featureSelected.emit(feature);
-
   }
 
 }
