@@ -15,7 +15,6 @@ export class NewAccountComponent {
     this.accountService.statusUpdated.subscribe(
       (status: string) => alert('Status: ' + status)
     );
-
   }
 
   onCreateAccount(accountName: string, accountStatus: string) {
