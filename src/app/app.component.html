@@ -9,7 +9,8 @@
                    type="text"
                    id="username"
                    class="form-control"
-                   ngModel>
+                   ngModel
+                   required>
           </div>
           <button class="btn btn-default" type="button">Suggest an Username</button>
           <div class="form-group">
@@ -20,6 +21,8 @@
               class="form-control"
               ngModel
               name="email"
+              required
+              email
 
             >
           </div>
@@ -31,6 +34,7 @@
             class="form-control"
             ngModel
             name="secret"
+
           >
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
