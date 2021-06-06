@@ -11,8 +11,19 @@ export class AppComponent {
   defaultQuestion = "teacher";
   answer = "";
   genders = ["male", "female"];
+
+  //Add a default name to the field. (Method)
   suggestUserName() {
     const suggestedName = 'Superuser';
+    this.signupForm.setValue({
+      userData: {
+        username: suggestedName,
+        email: "",
+      },
+      secret: 'pet',
+      questionAnswer: '',
+      gender: "male"
+    })
   }
 
   // Previous method
