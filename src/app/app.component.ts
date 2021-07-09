@@ -34,6 +34,21 @@ export class AppComponent implements OnInit{
       (value) => {console.log(value)}
     )
 
+    //This is for setting the values.
+    this.signupForm.setValue({
+      'userData': {
+        "username": "Emily",
+        "email": "Em@test.com"
+      },
+      "gender": "female",
+      "hobbies": []
+    })
+
+    //This is for updating the values keeping the set values as it is.
+    this.signupForm.patchValue({
+      "userData": "Anna"
+    })
+
   }
 
 
