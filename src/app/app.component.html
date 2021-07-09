@@ -2,29 +2,31 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> <!--Point to the custom formGroup-->
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            formControlName="username"
-            class="form-control">
-          <span
-            *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
-            class="help-block"
-          >Please enter a valid name for the user</span>
-        </div>
-        <div class="form-group">
-          <label for="email">email</label>
-          <input
-            type="text"
-            id="email"
-            formControlName="email"
-            class="form-control">
-          <span
-            *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
-            class="help-block"
-          >Please enter a valid email for the user</span>
+        <div formGroupName="userData">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              formControlName="username"
+              class="form-control">
+            <span
+              *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched"
+              class="help-block"
+            >Please enter a valid name for the user</span>
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input
+              type="text"
+              id="email"
+              formControlName="email"
+              class="form-control">
+            <span
+              *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched"
+              class="help-block"
+            >Please enter a valid email for the user</span>
+          </div>
         </div>
         <div class="radio" *ngFor="let gender of genders">
           <label>
@@ -33,6 +35,10 @@
               formControlName="gender"
               [value]="gender">{{ gender }}
           </label>
+        </div>
+        <div>
+          <h4>Hobbies</h4>
+          <button class="btn btn-default" type="button" (click)="onAddHobby()">Add Hobby</button>
         </div>
         <span
           *ngIf="!signupForm.valid && signupForm.touched"
