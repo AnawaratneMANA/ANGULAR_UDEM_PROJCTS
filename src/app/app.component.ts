@@ -10,11 +10,13 @@ export class AppComponent implements OnInit{
   genders = ['male', 'female'];
   // Object that can hold the form.
   signupForm:  FormGroup;
+  // Data for the custom validator.
+  forbiddenUserNames = ["Chris", "Anna"];
 
   ngOnInit() {
     this.signupForm = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null, Validators.required),
+        'username': new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email]),
       }),
       'gender': new FormControl('male'),
@@ -33,5 +35,12 @@ export class AppComponent implements OnInit{
 
   getControls (){
     return (<FormArray>this.signupForm.get('hobbies')).controls;
+  }
+
+  forbiddenNames(control : FormControl): {[s: string]: boolean}{
+    if (this.forbiddenUserNames.indexOf(control.value) !== -1){
+      return {"nameIsForbidden": true};
+    }
+    return null; // This should be null or omit the return statement.
   }
 }
